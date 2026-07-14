@@ -496,15 +496,6 @@ this by opening the same fixed port (`30080`) on every node's own IP
 address, so `<node-ip>:30080` is reachable directly, the same way any
 normal web server on that machine would be.
  
-**Does that mean port-forward is never needed with NodePort?**
-Normally, no — that's the tradeoff:
- 
-| Service type | Reachable from | Needs `kubectl port-forward`? |
-|---|---|---|
-| `ClusterIP` | Only inside the cluster (other pods) | **Yes, always** — it's the only way in from outside |
-| `NodePort` | `<node-ip>:<nodePort>`, from outside the cluster | **No, normally** — that's its whole purpose |
-| `NodePort` on Minikube running *inside a cloud VM* (see below) | Only Minikube's internal Docker network | **Yes** — see why below |
- 
 **The one common exception — Minikube on a cloud VM (e.g. EC2):**
 Minikube runs as its own isolated node *inside a Docker container* on
 your EC2 machine, with a private internal IP (something like
@@ -528,6 +519,7 @@ http://<ec2-public-ip>:8081
 ```
 Leave that port-forward command running the whole time you're testing.
 
+Showing browser image
 > <img src="./screenshots/task6-browser-page.png" width="700" />
  
 **How to access it in other setups:**
