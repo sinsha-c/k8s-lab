@@ -539,21 +539,7 @@ Leave that port-forward command running the whole time you're testing.
   Minikube runs its own local network directly reachable from your
   laptop's browser here, so this opens it (or prints the URL) with no
   extra steps.
- 
-- **Kind:** Kind also doesn't expose node IPs to your host by default,
-  so use port-forwarding the same way:
-  `kubectl port-forward -n dev-webapp svc/apache-service 8081:80`,
-  then open `http://localhost:8081`.
-- **Bare-metal node, kubeadm cluster, or most managed/cloud clusters
-  (not Minikube) where the node IP genuinely is the host's own network
-  interface:** open `http://<node-public-ip>:30080` directly. Find the
-  node IP with:
-```bash
-  kubectl get nodes -o wide
-```
-  You'll also need to allow inbound traffic on port `30080` in that
-  node's firewall / security group. This is the "normal" NodePort case
-  — no port-forward needed.
+
  
 ### Step 6.4 — Verify
  
