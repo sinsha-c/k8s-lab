@@ -254,7 +254,7 @@ yourself, because kubectl does the encoding for you:
 kubectl create secret generic apache-secret \
   --namespace=dev-webapp \
   --from-literal=admin-user=admin \
-  --from-literal=admin-password='ChangeMe123!'
+  --from-literal=admin-password='<password>'
 ```
 
 > **Alternative (declarative YAML):** if you prefer a YAML file for
@@ -269,7 +269,7 @@ kubectl create secret generic apache-secret \
 > type: Opaque
 > stringData:
 >   admin-user: admin
->   admin-password: ChangeMe123!
+>   admin-password: <password>
 > ```
 > (`stringData` lets you write plain text — Kubernetes encodes it for
 > you automatically, unlike `data` which requires pre-encoded base64.)
