@@ -528,7 +528,7 @@ http://<ec2-public-ip>:8081
 ```
 Leave that port-forward command running the whole time you're testing.
 
-> <img src="./screenshots/task6-service-endpoints1.png" width="700" />
+> <img src="./screenshots/task6-browser-page.png" width="700" />
  
 **How to access it in other setups:**
  
